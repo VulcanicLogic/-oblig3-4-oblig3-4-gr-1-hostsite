@@ -1,0 +1,14 @@
+{
+  "name": "ghibli-ssg",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "normalize": "node ssg/normalize-data.mjs",
+    "build": "node ssg/build.mjs",
+    "serve": "npx http-server dist -p 4321 -c-1"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "fs-extra": "^11.2.0"
+  }
+}
