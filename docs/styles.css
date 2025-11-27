@@ -28,7 +28,7 @@ body {
 }
 
 /* Animated clouds background */
-.clouds {
+/*.clouds {
     position: fixed;
     top: 0;
     left: 0;
@@ -529,6 +529,13 @@ header {
     font-weight: 300;
 }
 
+.back-btn-div{
+    display: flex; 
+    gap: 15px; 
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
 .back-btn {
     display: inline-block;
     margin-top: 15px;
@@ -549,14 +556,6 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* header with buttons on species pages */
-.header-with-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
 
 /* Loading */
 .loading {
