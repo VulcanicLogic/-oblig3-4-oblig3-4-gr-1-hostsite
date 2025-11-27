@@ -38,7 +38,8 @@ body {
     z-index: -1;
 }
 
-.clouds::before, .clouds::after {
+.clouds::before,
+.clouds::after {
     content: '';
     position: absolute;
     width: 200px;
@@ -61,8 +62,15 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateX(0) translateY(0); }
-    50% { transform: translateX(calc(100vw + 200px)) translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(calc(100vw + 200px)) translateY(-20px);
+    }
 }
 
 /* Soot Sprites (Susuwatari) Animation */
@@ -72,8 +80,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* container doesn't capture clicks, individual sprites will */
-    z-index: 2;
+    pointer-events: none;
+    /* container doesn't capture clicks, individual sprites will */
+    z-index: 10;
 }
 
 .soot-sprite {
@@ -89,7 +98,8 @@ body {
         0 0 10px rgba(0, 0, 0, 0.8),
         inset 0 0 4px rgba(0, 0, 0, 0.6),
         inset 2px 2px 3px rgba(40, 40, 40, 0.3);
-    pointer-events: auto; /* allow clicking each soot */
+    pointer-events: auto;
+    /* allow clicking each soot */
     cursor: pointer;
 }
 
@@ -107,7 +117,8 @@ body {
 }
 
 /* Add fuzzy texture with pseudo-elements for limbs */
-.soot-sprite::before, .soot-sprite::after {
+.soot-sprite::before,
+.soot-sprite::after {
     pointer-events: none;
 }
 
@@ -181,18 +192,24 @@ body {
 }
 
 @keyframes limbWiggle {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: rotate(-5deg);
     }
+
     50% {
         transform: rotate(5deg);
     }
 }
 
 @keyframes limbsWave {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-2px);
     }
@@ -204,40 +221,50 @@ body {
         opacity: 0;
         border-radius: 47% 53% 49% 51% / 53% 47% 51% 49%;
     }
+
     5% {
         opacity: 0.9;
     }
+
     15% {
         transform: translateY(85vh) translateX(-15px) rotate(45deg) scale(1.08);
         border-radius: 53% 47% 51% 49% / 47% 53% 49% 51%;
     }
+
     25% {
         border-radius: 52% 48% 48% 52% / 48% 52% 48% 52%;
         transform: translateY(75vh) translateX(20px) rotate(90deg) scale(0.95);
     }
+
     35% {
         transform: translateY(65vh) translateX(5px) rotate(135deg) scale(1.05);
         border-radius: 49% 51% 53% 47% / 51% 49% 47% 53%;
     }
+
     50% {
         border-radius: 50% 50% 52% 48% / 52% 48% 50% 50%;
         transform: translateY(50vh) translateX(35px) rotate(180deg) scale(0.92);
     }
+
     60% {
         transform: translateY(40vh) translateX(15px) rotate(225deg) scale(1.03);
         border-radius: 48% 52% 47% 53% / 53% 47% 52% 48%;
     }
+
     75% {
         border-radius: 48% 52% 48% 52% / 50% 50% 52% 48%;
         transform: translateY(25vh) translateX(45px) rotate(270deg) scale(1.0);
     }
+
     85% {
         transform: translateY(15vh) translateX(30px) rotate(315deg) scale(1.06);
         border-radius: 51% 49% 52% 48% / 48% 52% 49% 51%;
     }
+
     95% {
         opacity: 0.9;
     }
+
     100% {
         transform: translateY(-100px) translateX(50px) rotate(360deg) scale(1);
         opacity: 0;
@@ -246,16 +273,21 @@ body {
 }
 
 @keyframes blink {
-    0%, 100% {
-         opacity: 1;
+
+    0%,
+    100% {
+        opacity: 1;
         transform: scaleY(1);
     }
-    48%, 52% {
-         opacity: 1;
+
+    48%,
+    52% {
+        opacity: 1;
         transform: scaleY(1);
     }
+
     50% {
-         opacity: 0.2;
+        opacity: 0.2;
         transform: scaleY(0.1);
     }
 }
@@ -266,12 +298,28 @@ body {
 }
 
 @keyframes sootDisintegrate {
-    0% { opacity: 1; transform: scale(1) translateZ(0); filter: blur(0.8px); }
-    40% { opacity: 0.7; transform: scale(1.1) translateZ(0) rotate(-5deg); filter: blur(1.2px); }
-    100% { opacity: 0; transform: scale(0.4) translateZ(0) rotate(25deg); filter: blur(2px) grayscale(80%); }
+    0% {
+        opacity: 1;
+        transform: scale(1) translateZ(0);
+        filter: blur(0.8px);
+    }
+
+    40% {
+        opacity: 0.7;
+        transform: scale(1.1) translateZ(0) rotate(-5deg);
+        filter: blur(1.2px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.4) translateZ(0) rotate(25deg);
+        filter: blur(2px) grayscale(80%);
+    }
 }
 
-.soot-hidden { visibility: hidden; }
+.soot-hidden {
+    visibility: hidden;
+}
 
 .soot-particle {
     position: fixed;
@@ -292,9 +340,11 @@ body {
         opacity: 0.95;
         transform: translate(0, 0) scale(1) rotate(0deg);
     }
+
     50% {
         opacity: 0.6;
     }
+
     to {
         /* bias vertical movement upward by reducing the ty amplitude slightly here if negative */
         transform: translate(var(--tx, 0px), calc(var(--ty, 0px) - 20px)) rotate(var(--r, 0deg)) scale(0.2);
@@ -308,9 +358,23 @@ body {
 }
 
 @keyframes sootReform {
-    0% { opacity: 0; transform: scale(0.2) translateZ(0); filter: blur(3px); }
-    60% { opacity: 0.9; transform: scale(1.05) translateZ(0); filter: blur(0.8px); }
-    100% { opacity: 1; transform: scale(1) translateZ(0); filter: blur(0.0px); }
+    0% {
+        opacity: 0;
+        transform: scale(0.2) translateZ(0);
+        filter: blur(3px);
+    }
+
+    60% {
+        opacity: 0.9;
+        transform: scale(1.05) translateZ(0);
+        filter: blur(0.8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateZ(0);
+        filter: blur(0.0px);
+    }
 }
 
 /* Kodama (Tree Spirits) Animation */
@@ -321,7 +385,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 10;
 }
 
 .kodama {
@@ -358,18 +422,25 @@ body {
 }
 
 @keyframes kodamaShake {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: rotate(-5deg);
     }
+
     50% {
         transform: rotate(5deg);
     }
 }
 
 @keyframes kodamaBlink {
-    0%, 90%, 100% {
+
+    0%,
+    90%,
+    100% {
         opacity: 1;
     }
+
     95% {
         opacity: 0;
     }
@@ -383,7 +454,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 10;
 }
 
 .leaf {
@@ -412,12 +483,15 @@ body {
         transform: translateY(0) rotate(0deg) translateX(0);
         opacity: 0;
     }
+
     10% {
         opacity: 0.7;
     }
+
     90% {
         opacity: 0.7;
     }
+
     100% {
         transform: translateY(110vh) rotate(720deg) translateX(100px);
         opacity: 0;
@@ -475,6 +549,15 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* header with buttons on species pages */
+.header-with-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 /* Loading */
 .loading {
     text-align: center;
@@ -492,8 +575,13 @@ header {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Films Grid */
@@ -560,7 +648,8 @@ header {
     margin-bottom: 12px;
 }
 
-.film-card h2 {
+/* film titles on cards */
+.film-title {
     font-size: 1.8rem;
     margin-bottom: 8px;
     color: var(--primary-green);
@@ -640,7 +729,7 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
     padding: 40px;
     color: white;
 }
@@ -715,8 +804,14 @@ header {
     font-size: 1.05rem;
 }
 
+/* Species detail wrapper */
+.species-detail {
+    padding: 40px 0;
+}
+
 /* Characters Section */
-.characters-section, .additional-section {
+.characters-section,
+.additional-section {
     margin-top: 40px;
     background: var(--card-bg);
     border-radius: 20px;
@@ -1000,6 +1095,12 @@ footer a:hover {
     .info-grid {
         grid-template-columns: 1fr;
     }
+
+    .header-with-buttons {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1016,7 +1117,7 @@ footer a:hover {
         padding: 20px;
     }
 
-    .film-card h2 {
+    .film-title {
         font-size: 1.5rem;
     }
 
@@ -1047,63 +1148,143 @@ footer a:hover {
 }
 
 @keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 /* Place and size 6 soot sprites without inline styles */
-.soot-sprites { pointer-events: none; }
-.soot-sprite { pointer-events: auto; }
+.soot-sprites {
+    pointer-events: none;
+}
 
-.soot-sprite:nth-child(1) { left: 10%; width: 28px; height: 28px; animation-delay: 0s; }
-.soot-sprite:nth-child(2) { left: 25%; width: 32px; height: 32px; animation-delay: 2s; }
-.soot-sprite:nth-child(3) { left: 45%; width: 26px; height: 26px; animation-delay: 4s; }
-.soot-sprite:nth-child(4) { left: 65%; width: 30px; height: 30px; animation-delay: 1s; }
-.soot-sprite:nth-child(5) { left: 80%; width: 34px; height: 34px; animation-delay: 3s; }
-.soot-sprite:nth-child(6) { left: 90%; width: 27px; height: 27px; animation-delay: 5s; }
+.soot-sprite {
+    pointer-events: auto;
+}
 
-/* Kodama positions (moved out of inline style) */
-.kodama:nth-child(1) { left: 15%; top: 20%; }
-.kodama:nth-child(2) { left: 75%; top: 35%; }
-.kodama:nth-child(3) { left: 30%; top: 60%; }
+.soot-sprite:nth-child(1) {
+    left: 10%;
+    width: 28px;
+    height: 28px;
+    animation-delay: 0s;
+}
 
-/* Leaves positions / delays */
-.leaf:nth-child(1) { left: 20%; animation-delay: 0s; }
-.leaf:nth-child(2) { left: 50%; animation-delay: 3s; }
-.leaf:nth-child(3) { left: 70%; animation-delay: 6s; }
-.leaf:nth-child(4) { left: 85%; animation-delay: 9s; }
+.soot-sprite:nth-child(2) {
+    left: 25%;
+    width: 32px;
+    height: 32px;
+    animation-delay: 2s;
+}
+
+.soot-sprite:nth-child(3) {
+    left: 45%;
+    width: 26px;
+    height: 26px;
+    animation-delay: 4s;
+}
+
+.soot-sprite:nth-child(4) {
+    left: 65%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 1s;
+}
+
+.soot-sprite:nth-child(5) {
+    left: 80%;
+    width: 34px;
+    height: 34px;
+    animation-delay: 3s;
+}
+
+.soot-sprite:nth-child(6) {
+    left: 90%;
+    width: 27px;
+    height: 27px;
+    animation-delay: 5s;
+}
+
+.kodama:nth-child(1) {
+    left: 15%;
+    top: 20%;
+}
+
+.kodama:nth-child(2) {
+    left: 75%;
+    top: 35%;
+}
+
+.kodama:nth-child(3) {
+    left: 30%;
+    top: 60%;
+}
+
+.leaf:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.leaf:nth-child(2) {
+    left: 50%;
+    animation-delay: 3s;
+}
+
+.leaf:nth-child(3) {
+    left: 70%;
+    animation-delay: 6s;
+}
+
+.leaf:nth-child(4) {
+    left: 85%;
+    animation-delay: 9s;
+}
 
 /* Ensure decorative layers never block clicks on cards/links */
-.decorations { pointer-events: none; }
-.film-link, .chip, a { position: relative; z-index: 2; }
+.decorations {
+    pointer-events: none;
+}
+
+.film-link,
+.chip,
+a {
+    position: relative;
+    z-index: 2;
+}
 
 .film-link {
-  display: block;
-  color: inherit;
-  text-decoration: none;
+    display: block;
+    color: inherit;
+    text-decoration: none;
 }
-.film-link:hover .film-title { text-decoration: none; }
+
+.film-link:hover .film-title {
+    text-decoration: none;
+}
 
 .species-header-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 button.back-btn {
-  border: 2px solid white;
-  background: transparent;
-  color: white;
-  font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
-  cursor: pointer;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    cursor: pointer;
 }
 
 button.back-btn:hover {
-  background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .back-btn.back-btn-secondary {
-  background: transparent;
+    background: transparent;
 }
