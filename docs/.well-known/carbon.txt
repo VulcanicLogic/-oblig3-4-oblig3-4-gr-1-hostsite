@@ -1,0 +1,19 @@
+version = 0.3
+
+[site]
+domain = "vulcaniclogic.github.io"
+path = "/-oblig3-4-oblig3-4-gr-1-hostsite/"
+primary = true
+
+[site.upstream]
+domain   = "github.io"
+provider = "GitHub Pages"
+
+[[org]]
+name = "Oblig 3–4 Ghibli sustainability project"
+type = "organisation"
+
+[[org.disclosures]]
+kind        = "hosting"
+description = "Static student project hosted on GitHub Pages"
+source      = "https://vulcaniclogic.github.io/-oblig3-4-oblig3-4-gr-1-hostsite/"
